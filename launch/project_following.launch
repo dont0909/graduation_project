@@ -1,0 +1,16 @@
+  <launch>
+
+    <node name="robot1_follow" pkg="graduation_project" type="lidar_follow1.py" respawn="false" >
+      <param name="robot_name" type="string" value="/robot1" />
+    </node>
+    
+    <node name="robot2_follow" pkg="graduation_project" type="lidar_follow2.py" respawn="false" >
+      <param name="robot_name" type="string" value="/robot2" />
+    </node> 
+    
+    <node name="robot3_follow" pkg="graduation_project" type="lidar_follow3.py" respawn="false" >
+      <param name="robot_name" type="string" value="/robot3" />
+    </node>
+    
+
+  </launch>

@@ -1,0 +1,11 @@
+<launch>
+    <include file="$(find graduation_project)/launch/rgb_camera.launch"/>
+
+    <node pkg="graduation_project" name="gestrue" type="robotcon.py" output="screen" respawn="true"/>
+
+    <include file="$(find graduation_project)/launch/simulation_robot3.launch"/>
+
+    <node pkg="graduation_project" name="control_master" type="mykeyb.py" output="screen" respawn="true"/>
+
+
+</launch>

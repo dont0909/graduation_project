@@ -1,0 +1,32 @@
+<launch>
+
+  <param name="/use_sim_time" value="true" />  
+  
+  <include file="$(find graduation_project)/launch/gazebo_world.launch"/>
+
+
+  <group ns="robot1">
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find graduation_project)/urdf/mybot_0.xacro ns:=robot1" />
+
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model robot1 -x 2 -y 2 -z 1 -param robot_description" />
+
+
+  </group>
+
+  <group ns="robot2">
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find graduation_project)/urdf/mybot_1.xacro ns:=robot2" />
+
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" respawn="false"  
+    args="-urdf -model robot2 -x 1 -y 1 -z 1 -param robot_description" />
+
+  </group>
+
+  <group ns="robot3">
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find graduation_project)/urdf/mybot_2.xacro ns:=robot3" />
+
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" respawn="false"  
+    args="-urdf -model robot3 -x 0 -y 0 -z 0 -param robot_description" />
+
+  </group>
+
+</launch>
